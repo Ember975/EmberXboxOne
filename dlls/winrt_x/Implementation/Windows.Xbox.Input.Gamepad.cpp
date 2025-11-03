@@ -35,15 +35,6 @@ namespace winrt::Windows::Xbox::Input::implementation
             staticGamepads.Append(dummyGamepad);
         }
 
-        /*
-        * Register for mouse input
-        */
-        rid.usUsagePage = 0x01;
-        rid.usUsage = 0x02;
-        rid.dwFlags = RIDEV_INPUTSINK;
-        rid.hwndTarget = hwnd;
-        RegisterRawInputDevices(&rid, 1, sizeof(rid));
-
         return staticGamepads.GetView( );
     }
     winrt::event_token Gamepad::GamepadAdded(winrt::Windows::Foundation::EventHandler<winrt::Windows::Xbox::Input::GamepadAddedEventArgs> const& handler)
@@ -135,12 +126,35 @@ namespace winrt::Windows::Xbox::Input::implementation
             reading.RightThumbstickY = xiState.Gamepad.sThumbRY / 32768.f;
         }
 
+        float lx = 0.0f;
+        float ly = 0.0f;
+
         for (int i = 0; i < ARRAYSIZE(keyboardButtons); i++)
         {
 			if (GetAsyncKeyState(keyboardButtons[ i ].first))
 			{
 				reading.Buttons |= keyboardButtons[ i ].second;
-			}
+            }
+            else if (GetAsyncKeyState('W') & 0x8000) {
+                ly = 1.0f;
+            }
+            else if (GetAsyncKeyState('A') & 0x8000) {
+                lx = -1.0f;
+            }
+            else if (GetAsyncKeyState('S') & 0x8000) {
+                ly = -1.0f;
+            }
+            else if (GetAsyncKeyState('D') & 0x8000) {
+                lx = 1.0f;
+            }
+        }
+
+        lx = std::clamp(lx, -1.0f, 1.0f);
+        ly = std::clamp(ly, -1.0f, 1.0f);
+
+        if (lx != 0.0f || ly != 0.0f) {
+            reading.LeftThumbstickX = lx;
+            reading.LeftThumbstickY = ly;
         }
 
         winrt::Windows::UI::Core::CoreWindow window = winrt::Windows::UI::Core::CoreWindow::GetForCurrentThread();
@@ -154,8 +168,10 @@ namespace winrt::Windows::Xbox::Input::implementation
             float MouseX = pos.X - lastX;
             float MouseY = pos.Y - lastY;
 
-            reading.RightThumbstickX = std::clamp(MouseX / 50.0f, -1.0f, 1.0f);
-            reading.RightThumbstickY = std::clamp(-MouseY / 50.0f, -1.0f, 1.0f);
+            if (MouseX != 0.0f || MouseY != 0.0f) {
+                reading.RightThumbstickX = std::clamp(MouseX / 50.0f, -1.0f, 1.0f);
+                reading.RightThumbstickY = std::clamp(-MouseY / 50.0f, -1.0f, 1.0f);
+            }
 
             lastX = pos.X;
             lastY = pos.Y;
