@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "../common/Config.h"
-#include "ConnectedStorage/ConnectedStorage.h"
+#include "ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 
 DWORD WINAPI ThreadProc(LPVOID lpParam)
 {
