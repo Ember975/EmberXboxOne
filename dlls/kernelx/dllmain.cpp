@@ -69,11 +69,34 @@ inline void UnLoadMods()
 	{
 		FreeLibrary(mod);
 	}
+
+}
+#include <winrt/Windows.Services.Store.h>
+#include <winrt/Windows.Foundation.h>
+
+winrt::Windows::Foundation::IAsyncOperation<winrt::hstring> GetProductIdAsync()
+{
+	auto storeContext = winrt::Windows::Services::Store::StoreContext::GetDefault();
+	auto appLicense = co_await storeContext.GetAppLicenseAsync();
+	winrt::hstring productId = appLicense.SkuStoreId();
+
+	co_return productId;
+}
+std::string GetPackageName() {
+	winrt::hstring GamePackage = winrt::Windows::ApplicationModel::Package::Current().Id().FamilyName();
+	std::string packageName = winrt::to_string(GamePackage);
+
+	size_t underscorePos = packageName.find('_');
+	if (underscorePos != std::string::npos) {
+		packageName = packageName.substr(0, underscorePos);
+	}
+
+	return packageName;
 }
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID reserved)
 {
 	winrt::hstring GamePackage = winrt::Windows::ApplicationModel::Package::Current().Id().FamilyName();
-
+	std::string packageName = GetPackageName();
 	InitializeCriticalSection(&XMemSetAllocationHooksLock_X);
 
 	if (DetourIsHelperProcess()) return TRUE;
@@ -123,9 +146,12 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID reserved)
 		{
 			printf("Forza Horizon 2 Presents Fast & Furious");
 		}
-		if (GamePackage == L"HappyDungeons_zyyfzks419954")
+		if (packageName == "HappyDungeons")
 		{
-			printf("Happy Happy Happy Dungeons Dungeons Dungeons\n");
+		}
+		if (packageName == "HappyWars")
+		{
+			printf("Happy Wars Detected!");
 		}
 #endif
 

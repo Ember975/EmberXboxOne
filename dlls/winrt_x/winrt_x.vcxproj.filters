@@ -155,11 +155,11 @@
     <Filter Include="Implementation\Windows\Xbox\Speech\Recognition">
       <UniqueIdentifier>{8bbdeb8d-b4d2-47a9-9d8b-c61fa4c912e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Implementation\WinDurango">
-      <UniqueIdentifier>{39c5e887-fef6-48c2-9f60-7ddf8b3acdbf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Implementation\Windows\Xbox\SmartGlass">
       <UniqueIdentifier>{a9003d68-6bbb-43e4-ab6e-f1243e316c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementation\Windows\Xbox\Storage\WinDurango">
+      <UniqueIdentifier>{39c5e887-fef6-48c2-9f60-7ddf8b3acdbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -1243,9 +1243,6 @@
     <ClCompile Include="Implementation\Windows.Xbox.Speech.Recognition.SpeechSequenceRule.cpp">
       <Filter>Implementation\Windows\Xbox\Speech\Recognition</Filter>
     </ClCompile>
-    <ClCompile Include="ConnectedStorage\ConnectedStorage.cpp">
-      <Filter>Implementation\WinDurango</Filter>
-    </ClCompile>
     <ClCompile Include="Implementation\Windows.Xbox.SmartGlass.SmartGlassAuxiliaryStream.cpp">
       <Filter>Implementation\Windows\Xbox\SmartGlass</Filter>
     </ClCompile>
@@ -1326,6 +1323,9 @@
     </ClCompile>
     <ClCompile Include="Implementation\Windows.Xbox.Multiplayer.MultiplayerSessionReference.cpp">
       <Filter>Implementation\Windows\Xbox\Multiplayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectedStorage\Windows.Xbox.Storage.ConnectedStorage.cpp">
+      <Filter>Implementation\Windows\Xbox\Storage\WinDurango</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2405,9 +2405,6 @@
       <Filter>Implementation\Windows\Xbox\Speech\Recognition</Filter>
     </ClInclude>
     <ClInclude Include="common.h" />
-    <ClInclude Include="ConnectedStorage\ConnectedStorage.h">
-      <Filter>Implementation\WinDurango</Filter>
-    </ClInclude>
     <ClInclude Include="Implementation\Windows.Xbox.Input.ControllerInputManager.h">
       <Filter>Implementation\Windows\Xbox\Input</Filter>
     </ClInclude>
@@ -2491,6 +2488,9 @@
     </ClInclude>
     <ClInclude Include="Implementation\Windows.Xbox.Multiplayer.MultiplayerSessionReference.h">
       <Filter>Implementation\Windows\Xbox\Multiplayer</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectedStorage\Windows.Xbox.Storage.ConnectedStorage.h">
+      <Filter>Implementation\Windows\Xbox\Storage\WinDurango</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Windows.Xbox.Storage.ConnectedStorageContainer.h"
 #include "Windows.Xbox.Storage.ConnectedStorageContainer.g.cpp"
-#include "../ConnectedStorage/ConnectedStorage.h"
+#include "../ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 #include "Windows.Xbox.Storage.BlobInfoQueryResult.h"
 
 

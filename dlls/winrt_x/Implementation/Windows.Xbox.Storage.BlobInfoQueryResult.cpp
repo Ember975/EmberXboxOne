@@ -2,7 +2,7 @@
 #include "Windows.Xbox.Storage.BlobInfoQueryResult.h"
 #include "Windows.Xbox.Storage.BlobInfoQueryResult.g.cpp"
 #include <winrt/Windows.Foundation.Collections.h>
-#include "../ConnectedStorage/ConnectedStorage.h"
+#include "../ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Storage.FileProperties.h>
 #include <hstring.h>
