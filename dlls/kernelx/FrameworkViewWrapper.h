@@ -8,7 +8,7 @@ public:
 	FrameworkViewWrapper(IFrameworkView* windowView)
 		: m_realView(windowView)
 	{
-
+		printf("[Wrapper] FrameworkViewWrapper created!\n");
 	}
 
 

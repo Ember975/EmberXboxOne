@@ -13,7 +13,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
-    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17134.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -83,6 +83,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(VC_IncludePath);$(ProjectDir);$(WindowsSDK_IncludePath);$(ProjectDir)\External;$(ProjectDir)\$(PlatformShortName)\$(Configuration)\Generated Files;$(ProjectDir)\</IncludePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\Documents\Visual Studio 2022\Projects\WinDurango\dlls\winrt_x\x64\Debug\Generated Files</IncludePath>
@@ -132,7 +133,7 @@
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</MultiProcessorCompilation>
       <MultiProcessorCompilation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</MultiProcessorCompilation>
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)\imgui;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Midl>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/winrt %(AdditionalOptions)</AdditionalOptions>
@@ -163,7 +164,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />
-    <ClInclude Include="ConnectedStorage\ConnectedStorage.h" />
+    <ClInclude Include="ConnectedStorage\Windows.Xbox.Storage.ConnectedStorage.h" />
     <ClInclude Include="Implementation\Microsoft.Xbox.GameChat.AccessibilitySettingsChangedEventArgs.h" />
     <ClInclude Include="Implementation\Microsoft.Xbox.GameChat.ChannelUpdatedEventArgs.h" />
     <ClInclude Include="Implementation\Microsoft.Xbox.GameChat.ChatManager.h" />
@@ -553,7 +554,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConnectedStorage\ConnectedStorage.cpp" />
+    <ClCompile Include="ConnectedStorage\Windows.Xbox.Storage.ConnectedStorage.cpp" />
     <ClCompile Include="Implementation\Microsoft.Xbox.GameChat.AccessibilitySettingsChangedEventArgs.cpp" />
     <ClCompile Include="Implementation\Microsoft.Xbox.GameChat.ChannelUpdatedEventArgs.cpp" />
     <ClCompile Include="Implementation\Microsoft.Xbox.GameChat.ChatManager.cpp" />

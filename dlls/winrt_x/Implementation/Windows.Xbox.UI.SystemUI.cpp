@@ -38,11 +38,19 @@ namespace winrt::Windows::Xbox::UI::implementation
     {
         co_await resume_background( );
 
-		if (!g_pD3D11XEventFunc && !g_pWDWaitForKeyboardFunc)
-		{
-			g_pD3D11XEventFunc = GetProcAddress(GetModuleHandle(L"d3d11_x.dll"), "WD11XNotify");
-			g_pWDWaitForKeyboardFunc = GetProcAddress(GetModuleHandle(L"d3d11_x.dll"), "WDWaitForKeyboard");
-		}
+        auto hD3D11X = GetModuleHandle(L"d3d11_x.dll");
+        if (!hD3D11X) {
+            OutputDebugString(L"[ERROR] d3d11_x.dll not loaded\n");
+            co_return L"";
+        }
+
+        g_pD3D11XEventFunc = GetProcAddress(hD3D11X, "WD11XNotify_X");
+        g_pWDWaitForKeyboardFunc = GetProcAddress(hD3D11X, "WDWaitForKeyboard");
+
+        if (!g_pD3D11XEventFunc || !g_pWDWaitForKeyboardFunc) {
+            OutputDebugString(L"[ERROR] Could not find WD11XNotify or WDWaitForKeyboard\n");
+            co_return L"";
+        }
 
         reinterpret_cast<void(__stdcall*)(int)>(g_pD3D11XEventFunc)(1);
 

@@ -2,11 +2,11 @@
 #include "Windows.Xbox.Storage.ContainerInfoQueryResult.h"
 #include "Windows.Xbox.Storage.ContainerInfoQueryResult.g.cpp"
 #include <winrt/Windows.ApplicationModel.h>
-#include "../ConnectedStorage/ConnectedStorage.h"
+#include "../ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Storage.FileProperties.h>
 #include <winrt/Windows.Foundation.Collections.h>
-#include "../ConnectedStorage/ConnectedStorage.h"
+#include "../ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 
 namespace winrt::Windows::Xbox::Storage::implementation
 {

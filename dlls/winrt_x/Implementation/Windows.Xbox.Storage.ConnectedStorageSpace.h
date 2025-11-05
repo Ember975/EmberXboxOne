@@ -3,7 +3,7 @@
 
 #include <winrt/Windows.Foundation.Collections.h>
 
-#include "../ConnectedStorage/ConnectedStorage.h"
+#include "../ConnectedStorage/Windows.Xbox.Storage.ConnectedStorage.h"
 
 namespace winrt::Windows::Xbox::Storage::implementation
 {

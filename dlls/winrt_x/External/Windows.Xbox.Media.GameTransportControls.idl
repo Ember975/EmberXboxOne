@@ -100,9 +100,7 @@ namespace Windows
             interface IGameTransportControls : IInspectable
             {
                 [propget] HRESULT Title([out][retval] HSTRING* value);
-                [propput] HRESULT Title([in] HSTRING value);
                 [propget] HRESULT Subtitle([out][retval] HSTRING* value);
-                [propput] HRESULT Subtitle([in] HSTRING value);
                 [propget] HRESULT PlaybackStatus([out][retval] Windows.Xbox.Media.GamePlaybackStatus* value);
                 [propput] HRESULT PlaybackStatus([in] Windows.Xbox.Media.GamePlaybackStatus value);
                 [propget] HRESULT SoundLevel([out][retval] Windows.Xbox.Media.SoundLevel* value);

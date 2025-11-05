@@ -186,3 +186,6 @@ DEFINE_GUID(DXGI_DEBUG_D3D11, 0x4b99317b, 0xac39, 0x4aa6, 0xbb, 0xb, 0xba, 0xa0,
     MessageBoxA(NULL, std::format("[{}] NOT IMPLEMENTED\n{} - line {}", class_name, __FILE__, __LINE__).c_str(), "WD - d3d11_x", MB_OK) \
 
 #endif
+
+extern "C" __declspec(dllexport) void WD11XNotify_X(WDEVENT_TYPE event);
+extern "C" __declspec(dllexport) void WDWaitForKeyboard(const char** outText);
