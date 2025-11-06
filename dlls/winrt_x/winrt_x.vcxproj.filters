@@ -1339,6 +1339,9 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WinDurangoConfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Implementation\Microsoft.Xbox.GameChat.TextMessageReceivedEventArgs.h">
@@ -2506,6 +2509,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="toml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinDurangoConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

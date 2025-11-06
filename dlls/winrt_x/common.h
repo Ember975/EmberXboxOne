@@ -1,4 +1,13 @@
 #pragma once
+
+#include <mutex>
+
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
+
+#include "WinDurangoConfig.h"
+#include "logger.h"
+
 #define LOG_FUNCTION_NAME() printf("[%s]\n", __FUNCSIG__)
 #define PRINT_UNIMPLEMENTED_FUNCTION() printf("Unimplemented function: %s\n", __FUNCSIG__)
 #define MAKE_HSTRING(str) winrt::hstring(std::wstring(str, (str) + strlen(str)))

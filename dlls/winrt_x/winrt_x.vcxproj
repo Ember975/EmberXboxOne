@@ -550,7 +550,10 @@
     <ClInclude Include="Implementation\Windows.Xbox.UI.KeyboardOptions.h" />
     <ClInclude Include="Implementation\Windows.Xbox.UI.SystemUI.h" />
     <ClInclude Include="Implementation\Windows.Xbox.UI.WebAuthenticationResult.h" />
+    <ClInclude Include="logger.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="toml.hpp" />
+    <ClInclude Include="WinDurangoConfig.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConnectedStorage\Windows.Xbox.Storage.ConnectedStorage.cpp" />
@@ -945,6 +948,7 @@
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="WinDurangoConfig.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
